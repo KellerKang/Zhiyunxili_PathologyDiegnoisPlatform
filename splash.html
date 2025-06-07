@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>正在启动...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 24px;
+    }
+    .school {
+      width: 320px;
+      margin-bottom: 32px;
+    }
+    .progress {
+      width: 240px;
+      height: 12px;
+      background: #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #4f8cff, #00c6fb);
+      border-radius: 6px;
+      transition: width 0.3s;
+    }
+    .text {
+      font-size: 18px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <img src="src/assets/logo2.png" class="logo" alt="logo" />
+  <img src="src/assets/schoollogo.jpg" class="school" alt="school logo" />
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+  <div class="text">正在启动，请稍候...</div>
+  <script>
+    // 模拟进度条动画
+    let progress = 0;
+    const bar = document.getElementById('bar');
+    const timer = setInterval(() => {
+      progress += Math.random() * 15;
+      if (progress > 100) progress = 100;
+      bar.style.width = progress + '%';
+      if (progress >= 100) clearInterval(timer);
+    }, 300);
+  </script>
+</body>
+</html> 
